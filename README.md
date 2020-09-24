@@ -1,6 +1,5 @@
 # DaryaKurilovich-JWD
-\\создаем папку проекта, в ней создаем папки  com\epam\jwd\model
-C:\Users\Darya\Desktop\ConsoleFinal>mkdir com\epam\jwd\model 
+C:\Users\Darya\Desktop\ConsoleFinal>mkdir com\epam\jwd\model \\создаем папку проекта, в ней создаем папки  com\epam\jwd\model
 C:\Users\Darya\Desktop>move Point.java C:\Users\Darya\Desktop\ConsoleFinal\com\epam\jwd\model \\ перемещаем Point.java в com\epam\jwd\model
 Аналогично делаем с Main.java в папку com\epam\jwd\app
 C:\Users\Darya\Desktop\ConsoleFinal>mkdir lib \\создаем lib
