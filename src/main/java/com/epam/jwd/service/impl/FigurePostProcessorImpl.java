@@ -7,6 +7,9 @@ import com.epam.jwd.storage.Storage;
 
 public class FigurePostProcessorImpl implements FigurePostProcessor {
 
+    public FigurePostProcessorImpl() {
+    }
+
     @Override
     public Figure process(Figure figure) throws FigureException {
         if (figure == null) throw new FigureException("Figure is not exist");

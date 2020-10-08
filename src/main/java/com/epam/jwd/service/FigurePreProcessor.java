@@ -7,4 +7,5 @@ import com.epam.jwd.model.Point;
 
 public interface FigurePreProcessor {
     Figure process(FigureType figureType, Point[] points) throws FigureException;
+
 }

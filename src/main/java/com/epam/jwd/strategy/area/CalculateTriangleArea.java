@@ -1,8 +1,6 @@
 package com.epam.jwd.strategy.area;
 
-import com.epam.jwd.model.Figure;
 import com.epam.jwd.model.Point;
-import com.epam.jwd.model.Triangle;
 
 public class CalculateTriangleArea implements SquareCounter {
     private static CalculateTriangleArea calculateTriangleArea;

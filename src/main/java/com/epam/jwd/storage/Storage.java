@@ -67,17 +67,17 @@ public class Storage {
     }
 
     public Figure contains(Point[] points, FigureType figureType) {
-        if(array[0]!=null) {
+        if (array[0] != null) {
             for (int i = 0; i < array.length; i++) {
-                if (array[i].getFigureType() == figureType && checkArraysEquality(points, array[i].getPoints())) {
+                if (array[i].getFigureType() == figureType && equals(points, array[i].getPoints())) {
                     return array[i];
                 }
             }
         }
-            return null;
+        return null;
     }
 
-    public static boolean checkArraysEquality(Point[] points1, Point[] points2) {
+    public static boolean equals(Point[] points1, Point[] points2) {
         int count = 0;
         for (int i = 0; i < points1.length; i++) {
             for (int j = 0; j < points1.length; j++) {
@@ -89,6 +89,7 @@ public class Storage {
         }
         return count == points1.length ? true : false;
     }
+
 }
 
 

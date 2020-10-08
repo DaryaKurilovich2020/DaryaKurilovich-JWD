@@ -1,7 +1,7 @@
 package com.epam.jwd.strategy.perimeter;
 
-import com.epam.jwd.lineutility.LineUtility;
 import com.epam.jwd.model.Point;
+import com.epam.jwd.util.Util;
 
 public class CalculateTrianglePerimeter implements PerimeterCounter {
     private static CalculateTrianglePerimeter calculateTrianglePerimeter;
@@ -18,9 +18,9 @@ public class CalculateTrianglePerimeter implements PerimeterCounter {
 
     @Override
     public double calculate(Point[] points) {
-        double perimeter = LineUtility.getLineLength(points[0], points[1]) +
-                LineUtility.getLineLength(points[0], points[2]) +
-                LineUtility.getLineLength(points[1], points[2]);
+        double perimeter = Util.getLineLength(points[0], points[1]) +
+                Util.getLineLength(points[0], points[2]) +
+                Util.getLineLength(points[1], points[2]);
         return perimeter;
     }
 }

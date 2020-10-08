@@ -16,8 +16,9 @@ public abstract class Figure {
         this.figureType = figureType;
     }
 
-    public void setID() {
+    public Figure setID() {
         this.ID = ++id;
+        return this;
     }
 
     public Enum getFigureType() {

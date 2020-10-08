@@ -1,6 +1,7 @@
 package com.epam.jwd;
 
 import com.epam.jwd.exception.FigureException;
+import com.epam.jwd.factory.FigureFactory;
 import com.epam.jwd.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,14 +9,6 @@ import org.slf4j.LoggerFactory;
 public class Main {
 
     public static void main(String args[]) throws FigureException {
-        Logger logger = LoggerFactory.getLogger(Main.class);
-        try {
-            Figure pentagon = FigureFactory.getFigure(CreateArrayOfPoints(), FigureType.MULTIANGLE);
-            logger.info(pentagon.toString());
-        }
-        catch (FigureException e){
-            logger.error(e.getMessage());
-        }
 
 
     }
