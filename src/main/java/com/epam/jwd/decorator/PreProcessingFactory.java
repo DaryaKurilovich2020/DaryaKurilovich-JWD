@@ -9,7 +9,7 @@ import com.epam.jwd.service.impl.FigurePreProcessorImpl;
 
 public class PreProcessingFactory extends FigureFactoryDecorator {
 private final FigurePreProcessorImpl figurePreProcessor;
-    public PreProcessingFactory(FigureFactory factory, FigurePreProcessorImpl figurePreProcessor) {
+    public PreProcessingFactory(FigureFactory factory,FigurePreProcessorImpl figurePreProcessor) {
         super(factory);
         this.figurePreProcessor=figurePreProcessor;
     }

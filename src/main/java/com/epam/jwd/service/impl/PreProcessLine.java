@@ -12,6 +12,7 @@ import static com.epam.jwd.model.FigureType.LINE;
 public class PreProcessLine extends FigurePreProcessorImpl {
     private static PreProcessLine preProcessLine;
 
+
     @Override
     public Figure process(FigureType figureType, Point[] points) throws FigureException {
         Storage storage = Storage.getStorage();
@@ -45,9 +46,9 @@ public class PreProcessLine extends FigurePreProcessorImpl {
         else return new PreProcessLine();
     }
 
-    private PreProcessLine() {
-        super();
-    }
+  private PreProcessLine(){
+
+  }
 
 
 }

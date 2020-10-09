@@ -8,9 +8,11 @@ import com.epam.jwd.model.Point;
 import com.epam.jwd.service.FigurePreProcessor;
 
 public class FigurePreProcessorImpl implements FigurePreProcessor {
+    private static FigurePreProcessorImpl figurePreProcessor;
 
     public FigurePreProcessorImpl() {
     }
+
 
 
     @Override

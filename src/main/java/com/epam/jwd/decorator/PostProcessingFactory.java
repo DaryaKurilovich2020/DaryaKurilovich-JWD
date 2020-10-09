@@ -10,7 +10,7 @@ import com.epam.jwd.service.impl.FigurePostProcessorImpl;
 public class PostProcessingFactory extends FigureFactoryDecorator {
     private final FigurePostProcessorImpl figurePostProcessor;
 
-    public PostProcessingFactory(FigureFactory factory, FigurePostProcessorImpl figurePostProcessor) {
+    public PostProcessingFactory(FigureFactory factory,FigurePostProcessorImpl figurePostProcessor) {
         super(factory);
         this.figurePostProcessor = figurePostProcessor;
     }

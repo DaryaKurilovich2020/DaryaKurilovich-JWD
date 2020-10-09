@@ -6,9 +6,12 @@ import com.epam.jwd.service.FigurePostProcessor;
 import com.epam.jwd.storage.Storage;
 
 public class FigurePostProcessorImpl implements FigurePostProcessor {
+    private static FigurePostProcessorImpl figurePostProcessor;
 
     public FigurePostProcessorImpl() {
     }
+
+
 
     @Override
     public Figure process(Figure figure) throws FigureException {
