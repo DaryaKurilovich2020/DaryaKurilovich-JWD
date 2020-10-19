@@ -35,8 +35,6 @@ public class SimpleFigureFactory implements FigureFactory {
                 CalculateSquarePerimeter calculateSquarePerimeter = CalculateSquarePerimeter.getCalculateSquarePerimeterInstance();
                 figure.setPerimeterCounter(calculateSquarePerimeter);
                 break;
-            case MULTIANGLE:
-                figure = new MultiAngleFigure(figureType, points);
         }
         return figure;
     }

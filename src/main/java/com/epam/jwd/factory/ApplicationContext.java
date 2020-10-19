@@ -7,7 +7,7 @@ import com.epam.jwd.service.impl.FigurePostProcessorImpl;
 import com.epam.jwd.service.impl.FigurePreProcessorImpl;
 
 public class ApplicationContext {
-public static FigureFactory createFigureFactory(){
-    return new PostProcessingFactory(new PreProcessingFactory(new SimpleFigureFactory(),new FigurePreProcessorImpl()),new FigurePostProcessorImpl());
-}
+    public static FigureFactory createFigureFactory() {
+        return new PostProcessingFactory(new PreProcessingFactory(new SimpleFigureFactory(), new FigurePreProcessorImpl()), new FigurePostProcessorImpl());
+    }
 }

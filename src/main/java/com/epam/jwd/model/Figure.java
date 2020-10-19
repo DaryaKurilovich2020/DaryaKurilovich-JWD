@@ -4,24 +4,22 @@ import com.epam.jwd.strategy.area.SquareCounter;
 import com.epam.jwd.strategy.perimeter.PerimeterCounter;
 
 public abstract class Figure {
-    private Enum figureType;
+    private final FigureType figureType;
     private static int id = 0;
-    private int ID;
     protected SquareCounter squareCounter;
     protected PerimeterCounter perimeterCounter;
-    protected final Point[] points;
+    protected Point[] points;
 
     Figure(FigureType figureType, Point[] points) {
         this.points = points;
         this.figureType = figureType;
     }
 
-    public Figure setID() {
-        this.ID = ++id;
-        return this;
+    public void setId() {
+        ++id;
     }
 
-    public Enum getFigureType() {
+    public FigureType getFigureType() {
         return figureType;
     }
 
@@ -50,32 +48,7 @@ public abstract class Figure {
         this.squareCounter = squareCounter;
     }
 
- /*  @Override
-      public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Figure figure = (Figure) o;
-        int count = 0;
-        for (int i = 0; i < figure.getPoints().length; i++) {
-            for (int j = 0; j < figure.getPoints().length; j++) {
-                if (figure.getPoints()[i] == ((Figure) o).getPoints()[j]) {
-                    count++;
-                    break;
-                }
-            }
-        }
-        return Objects.equals(figureType, figure.figureType) && (count == figure.getPoints().length);
+    public void setPoints(Point[] points) {
+        this.points = points;
     }
-
-  */
-
-
-  /*  @Override
-    public int hashCode() {
-        int result = Objects.hash(figureType);
-        result = 31 * result + Arrays.hashCode(points);
-        return result;
-    }
-
-   */
 }

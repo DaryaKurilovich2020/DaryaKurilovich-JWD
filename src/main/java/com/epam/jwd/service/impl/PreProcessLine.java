@@ -4,8 +4,9 @@ import com.epam.jwd.exception.FigureException;
 import com.epam.jwd.model.Figure;
 import com.epam.jwd.model.FigureType;
 import com.epam.jwd.model.Point;
-import com.epam.jwd.service.impl.FigurePreProcessorImpl;
 import com.epam.jwd.storage.Storage;
+
+import java.util.List;
 
 import static com.epam.jwd.model.FigureType.LINE;
 
@@ -24,8 +25,8 @@ public class PreProcessLine extends FigurePreProcessorImpl {
             throw new FigureException("Line does not exist!");
 
         }
-        if (storage.contains(points, figureType) != null) {
-            return storage.contains(points, figureType);
+        if (storage.getFigure(points, figureType) != null) {
+            return storage.getFigure(points, figureType);
         }
         return null;
     }
@@ -33,22 +34,22 @@ public class PreProcessLine extends FigurePreProcessorImpl {
 
     @Override
     public boolean checkArraySize(FigureType figureType, Point[] points) {
-        return points.length == 2 ? true : false;
+        return points.length == 2;
     }
 
     @Override
     public boolean checkExistence(Point[] points) {
-        return points[0] == points[1] ? false : true;
+        return points[0] != points[1];
     }
 
     public static PreProcessLine getPreProcessLine() {
-        if (preProcessLine != null) return preProcessLine;
-        else return new PreProcessLine();
+        if (preProcessLine == null){
+            preProcessLine=new PreProcessLine();
+        }
+        return preProcessLine;
     }
 
   private PreProcessLine(){
 
   }
-
-
 }

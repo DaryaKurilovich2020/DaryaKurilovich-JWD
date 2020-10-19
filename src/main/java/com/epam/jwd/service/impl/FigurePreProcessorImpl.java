@@ -13,8 +13,6 @@ public class FigurePreProcessorImpl implements FigurePreProcessor {
     public FigurePreProcessorImpl() {
     }
 
-
-
     @Override
     public Figure process(FigureType figureType, Point[] points) throws FigureException {
         switch (figureType) {
@@ -37,6 +35,5 @@ public class FigurePreProcessorImpl implements FigurePreProcessor {
     public boolean checkArraySize(FigureType figureType, Point[] points) {
         return true;
     }
-
 }
 
