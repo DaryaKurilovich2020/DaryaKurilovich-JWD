@@ -5,7 +5,8 @@ import com.epam.jwd.strategy.perimeter.PerimeterCounter;
 
 public abstract class Figure {
     private final FigureType figureType;
-    private static int id = 0;
+    private static int globalId = 0;
+    private int id;
     protected SquareCounter squareCounter;
     protected PerimeterCounter perimeterCounter;
     protected Point[] points;
@@ -16,7 +17,11 @@ public abstract class Figure {
     }
 
     public void setId() {
-        ++id;
+        this.globalId = ++id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public FigureType getFigureType() {

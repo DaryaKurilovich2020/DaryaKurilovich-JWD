@@ -19,7 +19,7 @@ public interface FigureCrud {
 
     List<Figure> multiCreate(Map<FigureType, List<Point[]>> map);
 
-    void update(Figure figure, Point[] points);
+    void update(Figure figure,int id) throws FigureNotExistException;
 
     List<Figure> find(FigureCriteria figureCriteria);
 }

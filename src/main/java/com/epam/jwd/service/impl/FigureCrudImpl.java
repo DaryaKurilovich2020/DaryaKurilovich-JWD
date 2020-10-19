@@ -80,15 +80,17 @@ public class FigureCrudImpl implements FigureCrud {
     }
 
     @Override
-    public void update(Figure figure, Point[] points) {
-
+    public void update(Figure figure, int id) throws FigureNotExistException {
+        Figure toUpdate = this.findById(id);
+        this.deleteFigure(toUpdate);
+        figure.setId(id);
     }
 
     @Override
     public List<Figure> find(FigureCriteria criteria) {
-       return this.getStorage().getFigures().stream()
-                .filter(figure->figure.getFigureType()==criteria.getFigureType())
-               .collect(Collectors.toList());
+        return this.getStorage().getFigures().stream()
+                .filter(figure -> figure.getFigureType() == criteria.getFigureType())
+                .filter(figure -> figure.getId() == criteria.getId())
+                .collect(Collectors.toList());
     }
-
 }
