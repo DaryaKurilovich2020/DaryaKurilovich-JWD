@@ -6,8 +6,6 @@ import com.epam.jwd.model.FigureType;
 import com.epam.jwd.model.Point;
 import com.epam.jwd.storage.Storage;
 
-import java.util.List;
-
 import static com.epam.jwd.model.FigureType.LINE;
 
 public class PreProcessLine extends FigurePreProcessorImpl {

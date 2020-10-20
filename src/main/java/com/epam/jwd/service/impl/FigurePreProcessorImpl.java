@@ -7,8 +7,11 @@ import com.epam.jwd.model.FigureType;
 import com.epam.jwd.model.Point;
 import com.epam.jwd.service.FigurePreProcessor;
 
+import java.util.ArrayList;
+
 public class FigurePreProcessorImpl implements FigurePreProcessor {
     private static FigurePreProcessorImpl figurePreProcessor;
+    private static ArrayList<FigurePreProcessor> figurePreProcessors;
 
     public FigurePreProcessorImpl() {
     }
@@ -25,6 +28,10 @@ public class FigurePreProcessorImpl implements FigurePreProcessor {
             default:
                 return null;
         }
+    }
+
+    public static void addPreproccesor(FigurePreProcessor figurePreProcessor) {
+        figurePreProcessors.add(figurePreProcessor);
     }
 
     public boolean checkExistence(Point[] points) {

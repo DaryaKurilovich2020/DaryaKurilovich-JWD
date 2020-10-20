@@ -19,7 +19,8 @@ public class PostProcessingFactory extends FigureFactoryDecorator {
     @Override
     public Figure createFigure(FigureType type, Point[] figureConstituents) throws FigureException {
 
-        Figure figure = super.createFigure(type, figureConstituents).setID();
+        Figure figure = super.createFigure(type, figureConstituents);
+        figure.setId();
         return figurePostProcessor.process(figure);
     }
 }
