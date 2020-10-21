@@ -21,12 +21,12 @@ public class Storage {
         ArrayList<Figure> figures = new ArrayList<>();
     }
 
-    public void add(Figure item) {
-        getFigures().add(item);
+    public void addFigure(Figure item) {
+        getFiguresList().add(item);
     }
 
     public Figure getFigure(Point[] points, FigureType figureType) {
-        for (Figure figure : getFigures()) {
+        for (Figure figure : getFiguresList()) {
             if (figure.getFigureType() == figureType && Util.pointsEquals(points, figure.getPoints())) {
                 return figure;
             }
@@ -34,7 +34,7 @@ public class Storage {
         return null;
     }
 
-    public ArrayList<Figure> getFigures() {
+    public ArrayList<Figure> getFiguresList() {
         return figures;
     }
 }

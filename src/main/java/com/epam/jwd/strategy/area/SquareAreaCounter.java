@@ -18,7 +18,10 @@ public class SquareAreaCounter implements SquareCounter {
 
     @Override
     public double calculate(Point[] points) {
-        double side = Math.min(Util.getLineLength(points[0], points[1]), Util.getLineLength(points[0], points[2]));
-        return Math.pow(side, 2);
+        return Math.pow(getSideLength(points), 2);
+    }
+
+    private static double getSideLength(Point[] points) {
+        return Math.min(Util.getLineLength(points[0], points[1]), Util.getLineLength(points[0], points[2]));
     }
 }

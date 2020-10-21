@@ -18,8 +18,12 @@ public class TrianglePerimeterCounter implements PerimeterCounter {
 
     @Override
     public double calculate(Point[] points) {
-        return Util.getLineLength(points[0], points[1]) +
-                Util.getLineLength(points[0], points[2]) +
-                Util.getLineLength(points[1], points[2]);
+        return getSideLength(points[0], points[1]) +
+                getSideLength(points[0], points[2]) +
+                getSideLength(points[1], points[2]);
+    }
+
+    private static double getSideLength(Point a, Point b) {
+        return Util.getLineLength(a, b);
     }
 }

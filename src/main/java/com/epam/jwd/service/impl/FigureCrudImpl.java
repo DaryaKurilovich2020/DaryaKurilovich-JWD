@@ -31,7 +31,6 @@ public class FigureCrudImpl implements FigureCrud {
         return this.storage;
     }
 
-
     @Override
     public Figure create(FigureType figureType, Point[] points) throws FigureException {
         return ApplicationContext.createFigureFactory().createFigure(figureType, points);
@@ -39,7 +38,7 @@ public class FigureCrudImpl implements FigureCrud {
 
     @Override
     public Figure findById(int id) throws FigureNotExistException {
-        List<Figure> figures = getStorage().getFigures();
+        List<Figure> figures = getStorage().getFiguresList();
         return figures.stream()
                 .filter(figure -> figure.getId() == id)
                 .findAny()
@@ -48,11 +47,11 @@ public class FigureCrudImpl implements FigureCrud {
 
     @Override
     public void deleteFigure(Figure figure) throws FigureNotExistException {
-        Figure figure2 = this.getStorage().getFigures().stream()
+        Figure figure2 = this.getStorage().getFiguresList().stream()
                 .filter(figure::equals)
                 .findAny()
                 .orElseThrow(() -> new FigureNotExistException("Figure is not exist"));
-        this.getStorage().getFigures().remove(figure2);
+        this.getStorage().getFiguresList().remove(figure2);
     }
 
     @Override
@@ -60,12 +59,10 @@ public class FigureCrudImpl implements FigureCrud {
         return map.entrySet().stream().
                 flatMap(entry -> createFiguresFromEntries(entry).stream())
                 .collect(Collectors.toList());
-
     }
 
     private List<Figure> createFiguresFromEntries(Map.Entry<FigureType, List<Point[]>> entry) {
         FigureType figureType = entry.getKey();
-
         List<Point[]> figurePoints = entry.getValue();
         return figurePoints.stream()
                 .map(points -> {
@@ -88,7 +85,7 @@ public class FigureCrudImpl implements FigureCrud {
 
     @Override
     public List<Figure> find(FigureCriteria criteria) {
-        return this.getStorage().getFigures().stream()
+        return this.getStorage().getFiguresList().stream()
                 .filter(figure -> figure.getFigureType() == criteria.getFigureType())
                 .filter(figure -> figure.getId() == criteria.getId())
                 .collect(Collectors.toList());

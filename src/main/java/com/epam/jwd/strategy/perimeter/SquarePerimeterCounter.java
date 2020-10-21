@@ -5,6 +5,7 @@ import com.epam.jwd.util.Util;
 
 public class SquarePerimeterCounter implements PerimeterCounter {
     private static SquarePerimeterCounter calculatePerimeter;
+    private static final int SQUARE_INT=4;
 
     public static SquarePerimeterCounter getInstance() {
         if (calculatePerimeter == null) {
@@ -18,7 +19,10 @@ public class SquarePerimeterCounter implements PerimeterCounter {
 
     @Override
     public double calculate(Point[] points) {
-        double side = Math.min(Util.getLineLength(points[0], points[1]), Util.getLineLength(points[0], points[2]));
-        return 4 * side;
+        return SQUARE_INT * getSideLength(points);
+    }
+
+    private static double getSideLength(Point[] points) {
+        return Math.min(Util.getLineLength(points[0], points[1]), Util.getLineLength(points[0], points[2]));
     }
 }
