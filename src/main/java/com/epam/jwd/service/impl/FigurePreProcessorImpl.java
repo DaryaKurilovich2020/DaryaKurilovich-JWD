@@ -13,7 +13,13 @@ public class FigurePreProcessorImpl implements FigurePreProcessor {
     private static FigurePreProcessorImpl figurePreProcessor;
     private static ArrayList<FigurePreProcessor> figurePreProcessors;
 
-    public FigurePreProcessorImpl() {
+    private FigurePreProcessorImpl() {
+    }
+    public static FigurePreProcessor getInstance(){
+        if(figurePreProcessor==null){
+            figurePreProcessor=new FigurePreProcessorImpl();
+        }
+        return figurePreProcessor;
     }
 
     @Override

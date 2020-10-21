@@ -2,11 +2,11 @@ package com.epam.jwd.model;
 
 import com.epam.jwd.exception.FigureException;
 import com.epam.jwd.factory.FigureFactory;
-import com.epam.jwd.strategy.area.CalculateLineArea;
-import com.epam.jwd.strategy.area.CalculateSquareArea;
-import com.epam.jwd.strategy.area.CalculateTriangleArea;
-import com.epam.jwd.strategy.perimeter.CalculateLinePerimeter;
-import com.epam.jwd.strategy.perimeter.CalculateSquarePerimeter;
+import com.epam.jwd.strategy.area.LineAreaCounter;
+import com.epam.jwd.strategy.area.SquareAreaCounter;
+import com.epam.jwd.strategy.area.TriangleAreaCounter;
+import com.epam.jwd.strategy.perimeter.LinePerimeterCounter;
+import com.epam.jwd.strategy.perimeter.SquarePerimeterCounter;
 import com.epam.jwd.strategy.perimeter.CalculateTrianglePerimeter;
 
 public class SimpleFigureFactory implements FigureFactory {
@@ -16,24 +16,19 @@ public class SimpleFigureFactory implements FigureFactory {
         switch (figureType) {
             case LINE:
                 figure = new Line(points);
-                figure.setSquareCounter(CalculateLineArea.CALCULATE_LINE_AREA);
-                CalculateLinePerimeter calculateLinePerimeter = CalculateLinePerimeter.getCalculateLinePerimeterInstance();
-                figure.setPerimeterCounter(calculateLinePerimeter);
+                figure.setSquareCounter(LineAreaCounter.CALCULATE_LINE_AREA);
+                figure.setPerimeterCounter(LinePerimeterCounter.getInstance());
                 break;
             case TRIANGLE:
 
                 figure = new Triangle(points);
-                CalculateTriangleArea calculateTriangleArea = CalculateTriangleArea.getCalculateAreaInstance();
-                figure.setSquareCounter(calculateTriangleArea);
-                CalculateTrianglePerimeter calculateTrianglePerimeter = CalculateTrianglePerimeter.getCalculateTrianglePerimeterInstance();
-                figure.setPerimeterCounter(calculateTrianglePerimeter);
+                figure.setSquareCounter(TriangleAreaCounter.getInstance());
+                figure.setPerimeterCounter(CalculateTrianglePerimeter.getInstance());
                 break;
             case SQUARE:
                 figure = new Square(points);
-                CalculateSquareArea calculateSquareArea = CalculateSquareArea.getCalculateSquareAreaInstance();
-                figure.setSquareCounter(calculateSquareArea);
-                CalculateSquarePerimeter calculateSquarePerimeter = CalculateSquarePerimeter.getCalculateSquarePerimeterInstance();
-                figure.setPerimeterCounter(calculateSquarePerimeter);
+                figure.setSquareCounter(SquareAreaCounter.getInstance());
+                figure.setPerimeterCounter(SquarePerimeterCounter.getInstance());
                 break;
         }
         return figure;

@@ -14,4 +14,16 @@ public final class Util {
     public static double getKCoefficient(Point a, Point b) {
         return (a.getY() - b.getY()) / (a.getX() - b.getX());
     }
+    public static boolean pointsEquals(Point[] points1, Point[] points2) {
+        int count = 0;
+        for (Point point : points1) {
+            for (int j = 0; j < points1.length; j++) {
+                if (point == points2[j]) {
+                    count++;
+                    break;
+                }
+            }
+        }
+        return count == points1.length;
+    }
 }

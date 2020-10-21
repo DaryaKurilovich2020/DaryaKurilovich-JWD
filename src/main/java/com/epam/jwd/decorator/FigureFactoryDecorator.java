@@ -7,6 +7,7 @@ import com.epam.jwd.model.FigureType;
 import com.epam.jwd.model.Point;
 
 public abstract class FigureFactoryDecorator implements FigureFactory {
+
     private final FigureFactory factory;
 
     public FigureFactoryDecorator(FigureFactory factory) {
@@ -17,6 +18,4 @@ public abstract class FigureFactoryDecorator implements FigureFactory {
     public Figure createFigure(FigureType type, Point[] figureConstituents) throws FigureException {
         return this.factory.createFigure(type, figureConstituents);
     }
-
-
 }

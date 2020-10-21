@@ -11,7 +11,15 @@ import java.util.ArrayList;
 public class FigurePostProcessorImpl implements FigurePostProcessor {
     private static FigurePostProcessorImpl figurePostProcessor;
     private static ArrayList<FigurePostProcessor> figurePostProcessors;
-    public FigurePostProcessorImpl() {
+
+    private FigurePostProcessorImpl() {
+    }
+
+    public static FigurePostProcessor getInstance() {
+        if (figurePostProcessor == null) {
+            figurePostProcessor = new FigurePostProcessorImpl();
+        }
+        return figurePostProcessor;
     }
 
     public static void addPostproccesor(FigurePostProcessor figurePostProcessor) {
@@ -21,7 +29,7 @@ public class FigurePostProcessorImpl implements FigurePostProcessor {
     @Override
     public Figure process(Figure figure) throws FigureException {
         if (figure == null) throw new FigureException("Figure is not exist");
-        Storage storage = Storage.getStorage();
+        Storage storage = Storage.getInstance();
         figure.setId();
         storage.add(figure);
         return figure;

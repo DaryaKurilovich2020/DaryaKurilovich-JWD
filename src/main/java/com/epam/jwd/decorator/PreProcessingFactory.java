@@ -8,18 +8,20 @@ import com.epam.jwd.model.Point;
 import com.epam.jwd.service.impl.FigurePreProcessorImpl;
 
 public class PreProcessingFactory extends FigureFactoryDecorator {
-private final FigurePreProcessorImpl figurePreProcessor;
-    public PreProcessingFactory(FigureFactory factory,FigurePreProcessorImpl figurePreProcessor) {
+
+    private FigurePreProcessorImpl figurePreProcessor;
+
+    public PreProcessingFactory(FigureFactory factory) {
         super(factory);
-        this.figurePreProcessor=figurePreProcessor;
     }
 
     @Override
     public Figure createFigure(FigureType type, Point[] figureConstituents) throws FigureException {
-        Figure preProcess=figurePreProcessor.process(type,figureConstituents);
-        if(preProcess!=null) {
+        Figure preProcess = FigurePreProcessorImpl.getInstance().process(type, figureConstituents);
+        if (preProcess != null) {
             return preProcess;
         }
-        return super.createFigure(type, figureConstituents);
+        Figure figure = super.createFigure(type, figureConstituents);
+        return figure;
     }
 }
